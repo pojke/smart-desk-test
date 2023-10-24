@@ -1,0 +1,52 @@
+{
+    "name": "futurelab/smartdesk-by-futurelab",
+    "description": "Private repo for SmartDesk - Recruitment site",
+    "type": "project",
+    "license": "GPL v2",
+    "authors": [
+        {
+            "name": "FutureLab",
+            "email": "contact@futurelab.co.nz"
+        }
+    ],
+    "repositories":[
+    	{
+	        "type":"composer",
+	        "url":"https://wpackagist.org"
+	    }
+    ],
+    "require": {
+        "composer/installers": "^2.2",
+        "cmb2/cmb2": "^2.10",
+        "wpackagist-plugin/akismet": "^5.1",
+        "johnbillion/extended-cpts": "^5.0",
+        "mnsami/composer-custom-directory-installer": "^2.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "mnsami/composer-custom-directory-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "extra": {
+        "installer-paths": {
+            "mu-plugins/vendor/{$name}": [
+                "cmb2/cmb2",
+                "johnbillion/extended-cpts"
+            ],
+            "plugins/{$name}": [
+                "type:wordpress-plugin"
+            ]
+        }
+    },
+    "scripts": {
+		"php:lint": "vendor/bin/phpcs -p -s .",
+		"php:lint:errors": "vendor/bin/phpcs -p -s . --runtime-set ignore_warnings_on_exit 1",
+		"php:lint:autofix": "vendor/bin/phpcbf .",
+		"php:lint:changed": "vendor/bin/phpcs-changed --git --git-unstaged"
+	},
+    "require-dev": {
+        "humanmade/coding-standards": "^1.2"
+    }
+}
