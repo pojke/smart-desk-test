@@ -12,6 +12,19 @@
 const navElement = document.querySelector('.menu-primary-container');
 const toggleButton = document.querySelector('#site-navigation button');
 
-toggleButton.addEventListener('click', function () {
+function toggleNavVisibility() {
 	navElement.classList.toggle('visible');
+}
+
+if (window.innerWidth <= 768) {
+	toggleButton.addEventListener('click', toggleNavVisibility);
+}
+
+window.addEventListener('resize', function () {
+	if (window.innerWidth <= 768) {
+		toggleButton.addEventListener('click', toggleNavVisibility);
+	} else {
+		toggleButton.removeEventListener('click', toggleNavVisibility);
+		navElement.classList.remove('visible');
+	}
 });

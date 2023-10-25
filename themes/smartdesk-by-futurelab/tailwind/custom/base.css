@@ -30,7 +30,7 @@ body {
 }
 
 .menu-primary-container {
-	@apply hidden bg-white md:bg-transparent h-[100vh] md:z-auto md:h-auto w-full md:w-auto absolute md:relative top-0 md:top-[initial] left-0 md:left-[initial] p-8 pt-36 md:p-0;
+	@apply hidden md:flex bg-white md:bg-transparent h-[100vh] md:z-auto md:h-auto w-full md:w-auto absolute md:relative top-0 md:top-[initial] left-0 md:left-[initial] p-8 pt-36 md:p-0;
 }
 
 .menu-primary-container.visible {
@@ -47,7 +47,7 @@ body {
 }
 
 #primary-menu > li.menu-item > a {
-	@apply pb-2;
+	@apply pb-2 md:pb-0;
 }
 
 #primary-menu > li.menu-item:hover .sub-menu {
@@ -84,7 +84,7 @@ body {
 /* Footer styles */
 
 #colophon {
-	@apply z-20 bottom-0 md:bottom-[initial] md:z-auto bg-white w-[100%] pt-[40px] pb-[30px] px-[2em] md:px-[50px] md:py-[70px] text-primary flex flex-col md:flex-row md:items-center md:justify-between;
+	@apply z-20 bottom-0 md:bottom-[initial] md:z-auto bg-white w-[100%] pt-[40px] pb-[30px] px-[2em] md:px-[50px] md:py-[70px] text-primary flex flex-col md:flex-row md:items-end md:justify-between;
 }
 
 #colophon aside {
@@ -110,4 +110,8 @@ body {
 
 .footer-menu .highlight {
 	@apply bg-secondary text-white py-3 px-8 rounded-[6px] mt-32 md:mt-0 text-center;
+}
+
+.footer-menu .highlight:hover {
+	@apply bg-secondary-light;
 }
