@@ -116,6 +116,10 @@ if ( ! function_exists( 'sd_setup' ) ) :
 
 		// Remove support for block templates.
 		remove_theme_support( 'block-templates' );
+		
+		// Add support for custom logo
+		add_theme_support('custom-logo');
+		
 	}
 endif;
 add_action( 'after_setup_theme', 'sd_setup' );
@@ -213,3 +217,31 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+
+// Customization option in the settings to hide site name and description
+function theme_customize_register($wp_customize) {
+    $wp_customize->add_setting('hide_site_identity', array(
+        'default' => false, 
+        'sanitize_callback' => 'sanitize_checkbox',
+    ));
+
+    $wp_customize->add_control('hide_site_identity', array(
+        'label' => __('Hide Site Title and Description', 'theme-textdomain'),
+        'section' => 'title_tagline',
+        'type' => 'checkbox',
+    ));
+}
+add_action('customize_register', 'theme_customize_register');
+
+function sanitize_checkbox($input) {
+    return (bool) $input;
+}
+
+function add_svg_to_upload_mimes($upload_mimes) {
+    $upload_mimes['svg'] = 'image/svg+xml';
+    $upload_mimes['svgz'] = 'image/svg+xml';
+    return $upload_mimes;
+}
+add_filter('upload_mimes', 'add_svg_to_upload_mimes', 10, 1);
+

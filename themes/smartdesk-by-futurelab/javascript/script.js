@@ -8,3 +8,10 @@
  * For esbuild documentation, please see:
  * https://esbuild.github.io/
  */
+
+const navElement = document.querySelector('.menu-primary-container');
+const toggleButton = document.querySelector('#site-navigation button');
+
+toggleButton.addEventListener('click', function () {
+	navElement.classList.toggle('visible');
+});

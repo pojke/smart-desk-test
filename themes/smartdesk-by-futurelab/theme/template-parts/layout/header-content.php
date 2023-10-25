@@ -9,29 +9,18 @@
 
 ?>
 
-<header id="masthead">
-
-	<div>
-		<?php
-		if ( is_front_page() ) :
-			?>
-			<h1><?php bloginfo( 'name' ); ?></h1>
-			<?php
-		else :
-			?>
-			<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-		endif;
-
-		$sd_description = get_bloginfo( 'description', 'display' );
-		if ( $sd_description || is_customize_preview() ) :
-			?>
-			<p><?php echo $sd_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-		<?php endif; ?>
+<header id="masthead" class="">
+	<div class="custom-logo">
+		<?php if (function_exists('the_custom_logo')) {
+			the_custom_logo();
+		}	
+		?>
 	</div>
 
-	<nav id="site-navigation" aria-label="<?php esc_attr_e( 'Main Navigation', 'smartdesk-by-futurelab' ); ?>">
-		<button aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'smartdesk-by-futurelab' ); ?></button>
+	<nav id="site-navigation" class="text-[#4839D7] flex justify-between" aria-label="<?php esc_attr_e( 'Main Navigation', 'smartdesk-by-futurelab' ); ?>">
+		<button class="md:hidden z-20 absolute right-0 p-4" aria-controls="primary-menu" aria-expanded="false">
+			menu
+		</button>
 
 		<?php
 		wp_nav_menu(
@@ -43,5 +32,7 @@
 		);
 		?>
 	</nav><!-- #site-navigation -->
+
+	<button class="head-cta">Get Started</button>
 
 </header><!-- #masthead -->
