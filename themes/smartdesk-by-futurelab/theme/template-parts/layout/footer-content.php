@@ -17,36 +17,31 @@
 		</aside>
 	<?php endif; ?>
 
-	<?php if ( has_nav_menu( 'menu-2' ) ) : ?>
-		<nav aria-label="<?php esc_attr_e( 'Footer Menu', 'smartdesk-by-futurelab' ); ?>">
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-2',
-					'menu_class'     => 'footer-menu',
-					'depth'          => 1,
-				)
-			);
-			?>
-		</nav>
-	<?php endif; ?>
+	<div class="right-col">
+		<?php if ( has_nav_menu( 'menu-2' ) ) : ?>
+			<nav aria-label="<?php esc_attr_e( 'Footer Menu', 'smartdesk-by-futurelab' ); ?>">
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-2',
+						'menu_class'     => 'footer-menu',
+						'depth'          => 1,
+					)
+				);
+				?>
+			</nav>
+		<?php endif; ?>
 
-	<div>
-		<?php
-		$sd_blog_info = get_bloginfo( 'name' );
-		if ( ! empty( $sd_blog_info ) ) :
-			?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>,
-			<?php
-		endif;
+			<div class="flex gap-[1em] mt-[2em] justify-end">
+				<ul class="flex gap-[1em]">
+					<li>Privacy Policy</li>
+					<li>Terms and Conditions</li>
+				</ul>
 
-		/* translators: 1: WordPress link, 2: WordPress. */
-		printf(
-			'<a href="%1$s">proudly powered by %2$s</a>.',
-			esc_url( __( 'https://wordpress.org/', 'smartdesk-by-futurelab' ) ),
-			'WordPress'
-		);
-		?>
+				<p class="copyright">&copy; Copyright 2023</p>
+			</div>
 	</div>
+
+
 
 </footer><!-- #colophon -->

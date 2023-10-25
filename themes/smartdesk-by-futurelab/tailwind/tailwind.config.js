@@ -13,8 +13,8 @@ module.exports = {
 	],
 	theme: {
 		// Extend the default Tailwind theme.
-		extend: {},
 	},
+	extend: {},
 	corePlugins: {
 		// Disable Preflight base styles in builds targeting the editor.
 		preflight: includePreflight,

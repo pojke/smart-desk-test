@@ -12,5 +12,106 @@
  * editor.
 */
 body {
-	@apply bg-background text-foreground font-sans;
+	@apply bg-[#ECEBFB] text-foreground font-sans;
+}
+
+/* Header styles */
+
+#masthead {
+	@apply flex md:gap-8 md:items-center md:py-8 md:px-12 md:justify-between;
+}
+
+.custom-logo {
+	@apply z-20 md:z-auto max-w-[35vw] md:max-w-[20vw];
+}
+
+.logged-in .menu-primary-container {
+	@apply md:pt-0;
+}
+
+.menu-primary-container {
+	@apply hidden md:flex bg-white md:bg-transparent h-[100vh] md:z-auto md:h-auto w-full md:w-auto absolute md:relative top-0 md:top-[initial] left-0 md:left-[initial] p-8 pt-36 md:p-0;
+}
+
+.menu-primary-container.visible {
+	display: block;
+	overflow: hidden;
+}
+
+#primary-menu {
+	@apply md:flex md:gap-[3em] text-primary flex-col md:flex-row;
+}
+
+#primary-menu > li.menu-item {
+	@apply font-bold block relative md:p-4 mb-12 md:mb-0;
+}
+
+#primary-menu > li.menu-item > a {
+	@apply pb-2 md:pb-0;
+}
+
+#primary-menu > li.menu-item:hover .sub-menu {
+	@apply md:flex;
+}
+
+.sub-menu {
+	@apply flex flex-col md:hidden md:absolute  md:bg-white bg-transparent gap-[.5em] md:rounded-[6px] md:py-[1em] md:px-[1.2em] md:mt-4 w-[280px] md:shadow-[0px_3px_40px_#4739d722];
+}
+
+.sub-menu li a {
+	@apply font-normal;
+}
+
+.menu-item-has-children a {
+	display: flex;
+	align-items: center;
+}
+
+.menu-item-has-children > a:after {
+	@apply hidden md:flex border-secondary border-t-[8px] border-x-[5px] border-x-transparent ml-[0.5em] w-0 h-0 content-[''];
+}
+
+/* Page */
+
+#content {
+	@apply min-h-[500px] px-16 py-32;
+}
+
+.entry-footer {
+	@apply invisible;
+}
+
+/* Footer styles */
+
+#colophon {
+	@apply z-20 bottom-0 md:bottom-[initial] md:z-auto bg-white w-[100%] pt-[40px] pb-[30px] px-[2em] md:px-[50px] md:py-[70px] text-primary flex flex-col md:flex-row md:items-end md:justify-between;
+}
+
+#colophon aside {
+	@apply md:justify-between mb-8 md:mb-0  md:flex;
+}
+
+#colophon .wp-block-table td {
+	@apply border-0 p-0 pb-2;
+}
+
+.head-cta {
+	/* border: 1px solid #4839d7; */
+	@apply hidden md:block px-8 py-2 text-primary border-primary border-[1px] hover:bg-primary hover:text-white whitespace-nowrap rounded-[6px];
+}
+
+.footer-menu {
+	@apply md:flex md:items-center md:gap-[3em] font-bold;
+}
+
+.footer-menu li {
+	@apply mb-[.5em] md:mb-0;
+}
+
+.footer-menu .highlight {
+	@apply bg-secondary text-white py-3 px-8 rounded-[6px] mt-32 md:mt-0 text-center;
+}
+
+.footer-menu .highlight:hover {
+	@apply bg-secondary-light;
 }

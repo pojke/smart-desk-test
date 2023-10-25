@@ -11,23 +11,28 @@
 				},
 				{
 					"slug": "foreground",
-					"color": "#404040",
+					"color": "#4739D733",
 					"name": "Foreground"
 				},
 				{
 					"slug": "primary",
-					"color": "#b91c1c",
+					"color": "#4839D7",
 					"name": "Primary"
 				},
 				{
 					"slug": "secondary",
-					"color": "#15803d",
+					"color": "#FF6B23",
 					"name": "Secondary"
 				},
 				{
-					"slug": "tertiary",
-					"color": "#0369a1",
-					"name": "Tertiary"
+					"slug": "primary-light",
+					"color": "#7266E0",
+					"name": "Primary light"
+				},
+				{
+					"slug": "secondary-light",
+					"color": "#FF884F",
+					"name": "Secondary light"
 				}
 			]
 		},
